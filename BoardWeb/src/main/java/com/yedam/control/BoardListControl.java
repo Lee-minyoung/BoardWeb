@@ -17,7 +17,7 @@ public class BoardListControl implements Control {
 	public void exec(HttpServletRequest req, HttpServletResponse resp) //
 			throws ServletException, IOException {
 
-		String name = "홍길동";
+		String name = "";
 
 		// boardList.do -> (BoardListControl) -> boardList.jsp
 		req.setAttribute("msg", name);
@@ -27,7 +27,7 @@ public class BoardListControl implements Control {
 		req.setAttribute("list", list);
 
 		// 요청재지정(url:boardList.do (doardList.jsp))
-		req.getRequestDispatcher("boardList.jsp").forward(req, resp);
+		req.getRequestDispatcher("/WEB-INF/views/boardList.jsp").forward(req, resp);
 
 	}
 }
