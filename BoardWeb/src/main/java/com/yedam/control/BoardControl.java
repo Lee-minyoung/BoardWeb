@@ -21,7 +21,7 @@ public class BoardControl implements Control {
 		BoardVO board = bdao.getBoard(Integer.parseInt(bno));
 		bdao.updateCount(Integer.parseInt(bno));
 		// 요청정보의 attribute활용
-		req.setAttribute("board", board);
+		req.setAttribute("board", board); 
 		req.getRequestDispatcher("/WEB-INF/views/board.jsp").forward(req, resp);
 
 	}
