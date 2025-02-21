@@ -28,6 +28,7 @@ public record ModifyControl() implements Control {
 			req.setAttribute("msg", "권한을 확인하세요.");
 			req.setAttribute("board", board);
 			req.getRequestDispatcher("/WEB-INF/views/board.jsp").forward(req, resp);
+			return;
 		}
 		
 		// 요청정보의 attribute활용
