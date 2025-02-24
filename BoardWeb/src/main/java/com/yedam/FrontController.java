@@ -13,20 +13,24 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.yedam.control.AddBoardControl;
 import com.yedam.control.AddFormControl;
+import com.yedam.control.AjaxControl;
 import com.yedam.control.BoardControl;
 import com.yedam.control.BoardListControl;
+import com.yedam.control.DataControl;
 import com.yedam.control.LoginControl;
 import com.yedam.control.LogoutControl;
 import com.yedam.control.MainControl;
+import com.yedam.control.MemberListControl;
 import com.yedam.control.ModifyBoardControl;
 import com.yedam.control.ModifyControl;
 import com.yedam.control.RemoveBoardControl;
+import com.yedam.control.RemoveMemberControl;
 
 /*
  * MVC 에서 Controller
  * url요청 -> servlet.
  */
-@WebServlet("*.do")
+// @WebServlet("*.do")
 public class FrontController extends HttpServlet{
 	Map<String, Control> map;
 	
@@ -41,9 +45,9 @@ public class FrontController extends HttpServlet{
 		map.put("/boardList.do", new BoardListControl()); //글목록
 		map.put("/addForm.do", new AddFormControl()); //등록화면
 		map.put("/addBoard.do", new AddBoardControl()); //등록처리
-		map.put("/board.do", new BoardControl()); //등록처리		
+		map.put("/board.do", new BoardControl()); //상세화면		
 		map.put("/modifyForm.do", new ModifyControl()); //수정화면
-		map.put("/modifyBoard.do", new ModifyBoardControl()); //수정화면
+		map.put("/modifyBoard.do", new ModifyBoardControl()); //수정처리
 		// 삭제화면 삭제처리
 		map.put("/removeBoard.do", new RemoveBoardControl());
 		
@@ -51,9 +55,13 @@ public class FrontController extends HttpServlet{
 		map.put("/loginForm.do", new LoginControl()); // 화면
 		map.put("/login.do", new LoginControl()); // 로그인 처리
 		map.put("/logout.do", new LogoutControl()); // 로그아웃
+				
+		map.put("/memberList.do", new MemberListControl()); // 회원목록
+		map.put("/testAjax.do", new AjaxControl());
+		map.put("/testData.do", new DataControl());
 		
-		
-		
+		// 회원삭제
+		map.put("/removeMember.do", new RemoveMemberControl());
 		
 	}
 	

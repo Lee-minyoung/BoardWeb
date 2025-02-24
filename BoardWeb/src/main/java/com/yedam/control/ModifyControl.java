@@ -33,7 +33,7 @@ public record ModifyControl() implements Control {
 		
 		// 요청정보의 attribute활용
 		req.setAttribute("board", board);
-		req.getRequestDispatcher("/WEB-INF/views/modifyBoard.jsp").forward(req, resp);
+		req.getRequestDispatcher("board/modifyBoard.tiles").forward(req, resp);
 		
 	}
 
