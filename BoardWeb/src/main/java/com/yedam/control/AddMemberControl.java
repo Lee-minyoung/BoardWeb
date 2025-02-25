@@ -8,19 +8,28 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.yedam.Control;
 import com.yedam.dao.MemberDAO;
+import com.yedam.vo.MemberVO;
 
-public record RemoveMemberControl() implements Control {
+public class AddMemberControl implements Control {
 
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		
+		// param(아이디, 비밀번호, 이름)
 		String id = req.getParameter("mid");
-		
-		// MemberDAO에 삭제. boolean deleteMember(String id);
+		String pw = req.getParameter("mpw");
+		String name = req.getParameter("mname");
+
+		// insertMember에 전달할 매개값.
+		MemberVO member = new MemberVO();
+		member.setMemberId(id);
+		member.setPasswd(pw);
+		member.setMemberName(name);
+
 		MemberDAO mdao = new MemberDAO();
-		// 정상삭제 : true, 처리예외: false;
-		boolean isOk = mdao.deleteMember(id);
-		
+		// 추가메소드(boolean insertMember(MemberVO member)).
+		boolean isOk = mdao.insertMember(member);
+
+		// 처리결과 반환.
 		if (isOk) {
 			// {"retCode": "OK"}
 			resp.getWriter().print("{\"retCode\": \"OK\"}");
@@ -28,7 +37,7 @@ public record RemoveMemberControl() implements Control {
 			// {"retCode": "NG"}
 			resp.getWriter().print("{\"retCode\": \"NG\"}");
 		}
-		
+
 	}
-	
+
 }

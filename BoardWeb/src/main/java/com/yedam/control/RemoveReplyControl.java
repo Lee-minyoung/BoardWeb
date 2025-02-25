@@ -7,28 +7,26 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.yedam.Control;
-import com.yedam.dao.MemberDAO;
+import com.yedam.dao.ReplyDAO;
 
-public record RemoveMemberControl() implements Control {
+public class RemoveReplyControl implements Control {
 
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		// 댓글번호
+		String rno = req.getParameter("rno");
 		
-		String id = req.getParameter("mid");
+		// DB
+		ReplyDAO rdao = new ReplyDAO();
+		boolean run = rdao.deleteReply(Integer.parseInt(rno));
 		
-		// MemberDAO에 삭제. boolean deleteMember(String id);
-		MemberDAO mdao = new MemberDAO();
-		// 정상삭제 : true, 처리예외: false;
-		boolean isOk = mdao.deleteMember(id);
-		
-		if (isOk) {
-			// {"retCode": "OK"}
+		// json반환
+		if (run) {
 			resp.getWriter().print("{\"retCode\": \"OK\"}");
 		} else {
-			// {"retCode": "NG"}
 			resp.getWriter().print("{\"retCode\": \"NG\"}");
 		}
-		
+
 	}
-	
+
 }

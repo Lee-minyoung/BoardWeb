@@ -4,10 +4,53 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.yedam.vo.BoardVO;
 import com.yedam.vo.MemberVO;
 
 public class MemberDAO extends DAO{
 	
+	
+	
+	// 추가.
+		public boolean insertMember(MemberVO member) {
+			String query = "insert into tbl_member (member_id, passwd, member_name) "//
+					+ "values(?,?,?)";
+			try {
+				psmt = getConnect().prepareStatement(query);
+				psmt.setString(1, member.getMemberId()); // ?에 값 지정.
+				psmt.setString(2, member.getPasswd()); // ?에 값 지정.
+				psmt.setString(3, member.getMemberName()); // ?에 값 지정.
+				int r = psmt.executeUpdate(); // 쿼리 실행.
+				if (r > 0) {
+					return true;
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} finally {
+				disConnect(); // 정상실행이거나 예외발생이나 반드시 실행할 코드.
+			}
+			return false;
+		} // end of insertMember.
+	
+	
+	// 삭제
+	public boolean deleteMember(String id) {
+		String query = "delete from tbl_member where member_id = ?";
+		try {
+			psmt = getConnect().prepareStatement(query);
+			psmt.setString(1, id); // ?에 값 지정
+			int r = psmt.executeUpdate(); // 쿼리 실행
+			if(r>0) {
+				return true;
+			}
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}finally {
+			disConnect(); //정상실행이거나 예외발생		}
+		}
+		return false;
+	}
+		
 	public List<MemberVO> members() {
 		String sql = "select member_id" //
 				+ "			,passwd" //

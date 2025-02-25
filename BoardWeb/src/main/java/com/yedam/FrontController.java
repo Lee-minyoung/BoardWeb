@@ -6,13 +6,14 @@ import java.util.Map;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.yedam.control.AddBoardControl;
 import com.yedam.control.AddFormControl;
+import com.yedam.control.AddMemberControl;
+import com.yedam.control.AddReplyControl;
 import com.yedam.control.AjaxControl;
 import com.yedam.control.BoardControl;
 import com.yedam.control.BoardListControl;
@@ -25,6 +26,8 @@ import com.yedam.control.ModifyBoardControl;
 import com.yedam.control.ModifyControl;
 import com.yedam.control.RemoveBoardControl;
 import com.yedam.control.RemoveMemberControl;
+import com.yedam.control.RemoveReplyControl;
+import com.yedam.control.ReplyListContol;
 
 /*
  * MVC 에서 Controller
@@ -62,7 +65,13 @@ public class FrontController extends HttpServlet{
 		
 		// 회원삭제
 		map.put("/removeMember.do", new RemoveMemberControl());
+		// 회원등록
+		map.put("/addMember.do", new AddMemberControl());
 		
+		//댓글관련
+		map.put("/replyList.do", new ReplyListContol()); // 목록
+		map.put("/addReply.do", new AddReplyControl()); // 등록
+		map.put("/removeReply.do", new RemoveReplyControl()); // 삭제
 	}
 	
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

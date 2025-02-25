@@ -4,7 +4,6 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <h3>상세화면(board.jsp)</h3>
-
 <form action="modifyForm.do">
 <input type="hidden" name="bno" value="${board.boardNo }">
 <table class="table">
@@ -38,8 +37,44 @@
 	</c:if>
 </table>
 </form>
+
+<style>
+	.reply .content ul {
+	list-style-type: none;
+	}
+	.reply .content span {
+	display: inline-block;
+	}
+</style>
+
+<!-- 댓글관련 -->
+	<div class="container reply">
+	<!-- 댓글등록 -->
+	<div class="header">
+		<input type="text" id="reply" class="col-sm-9">
+		<button id="addReply">댓글등록</button>
+	</div>
+	
+	<!-- 댓글목록 -->
+	<div class="content">
+	<ul>
+		<li>
+			<span class="col-sm-2">글번호</span>
+			<span class="col-sm-5">글내용</span>
+			<span class="col-sm-2">작성자</span>
+			<span class="col-sm-2">삭제</span>
+		</li>
+	</ul>
+	</div>
+	<!-- 댓글페이징 -->
+	<div class="footer"></div>
+
+</div>
+
 <script>
 	let logid="${loginId}"; //자바의 변수값을 script 사용
+	const bno="${board.boardNo }";
+	console.log(bno);
 	// 삭제버튼에 클릭 이벤트 등록
 	document.querySelector('button.btn-danger').addEventListener('click', function(e){
 		let writer = document.querySelector('table.table>tbody>tr:nth-of-type(4)>td').innerHTML;
@@ -51,4 +86,7 @@
 	    	alert("권한을 확인하세요.");
 	});
 </script>
+
+<script src="js/replyService.js"></script>
+<script src="js/reply.js"></script>
 
