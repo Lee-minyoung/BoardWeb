@@ -16,9 +16,9 @@
     </head>
     <body>
         <div class="d-flex" id="wrapper">
-           	<!-- header -->
-           	<tiles:insertAttribute name="header"/>
-           	
+            <!-- header위치. -->
+            <tiles:insertAttribute name="header" />
+            
             <!-- Page content wrapper-->
             <div id="page-content-wrapper">
                 <!-- Top navigation-->
@@ -45,13 +45,13 @@
                 </nav>
                 <!-- Page content-->
                 <div class="container-fluid">
-					<!-- body -->
-					<tiles:insertAttribute name="body" />
+                    <!-- body위치. -->
+                    <tiles:insertAttribute name="body" />
                 </div>
             </div>
         </div>
-       <!-- footer -->
-       <tiles:insertAttribute name="footer" />
-    
+        <!-- footer위치. -->
+        <tiles:insertAttribute name="footer" />
     </body>
 </html>
+

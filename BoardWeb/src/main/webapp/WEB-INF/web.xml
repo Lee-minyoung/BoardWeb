@@ -17,7 +17,7 @@
 		<servlet-name>Tiles Dispatch Servlet</servlet-name>
 		<url-pattern>*.tiles</url-pattern>
 	</servlet-mapping>
-	
+
 	<servlet>
 		<servlet-name>front</servlet-name>
 		<servlet-class>com.yedam.FrontController</servlet-class>
@@ -27,7 +27,7 @@
 		<url-pattern>*.do</url-pattern>
 	</servlet-mapping>
 
-	<!-- 서블릿과 url pattern 지정 -->
+	<!-- 서블릿과 url pattern지정. -->
 	<servlet>
 		<servlet-name>sample</servlet-name>
 		<servlet-class>com.yedam.SampleServlet</servlet-class>
@@ -38,7 +38,7 @@
 	</servlet-mapping>
 
 	<welcome-file-list>
-		<!-- app 실행 시 첫 페이지 -->
+		<!-- app 실행시 첫페이지. -->
 		<welcome-file>index.jsp</welcome-file>
 	</welcome-file-list>
 </web-app>

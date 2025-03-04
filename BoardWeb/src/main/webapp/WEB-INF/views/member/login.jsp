@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -45,7 +47,7 @@ button:hover {
 }
 
 img.avatar {
-  width: 20%;
+  width: 30%;
   border-radius: 50%;
 }
 
@@ -76,9 +78,9 @@ span.psw {
 /* Modal Content/Box */
 .modal-content {
   background-color: #fefefe;
-  margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+  margin: 2% auto 2% auto; /* 5% from the top, 15% from the bottom and centered */
   border: 1px solid #888;
-  width: 80%; /* Could be more or less, depending on screen size */
+  width: 50%; /* Could be more or less, depending on screen size */
 }
 
 /* The Close Button (x) */
@@ -173,3 +175,4 @@ window.onclick = function(event) {
 
 </body>
 </html>
+    

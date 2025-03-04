@@ -7,14 +7,17 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+/*
+ * EmpDAO, StudentDAO....
+ */
 public class DAO {
-	// Connection 객체. StateMent, PreparedStatement, ResultSet
+	// Connection객체. Statement, PreparedStatement, ResultSet
 	Connection conn = null;
-	Statement stmt; // query 실행 후 결과 반환 Class
+	Statement stmt; // 쿼리실행하고 결과 반환 클래스.
 	PreparedStatement psmt;
 	ResultSet rs;
 
-	// 세션해제
+	// 세션해제.
 	void disConnect() {
 		try {
 			if (conn != null) {
@@ -34,9 +37,9 @@ public class DAO {
 		}
 	}
 
-	// 오라클 접속세션
+	// 오라클 접속 세션연결.
 	Connection getConnect() {
-		String url = "jdbc:oracle:thin:@localhost:1521:xe"; // 오라클DB의 접속정보
+		String url = "jdbc:oracle:thin:@localhost:1521:xe";// 오라클DB의 접속정보.
 		String user = "hr";
 		String password = "hr";
 		try {
@@ -46,5 +49,5 @@ public class DAO {
 			e.printStackTrace();
 		}
 		return conn;
-	}// end of getConnect()
+	}// end of getConnect().
 }

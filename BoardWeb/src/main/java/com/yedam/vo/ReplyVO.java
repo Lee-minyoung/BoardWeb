@@ -11,5 +11,4 @@ public class ReplyVO {
 	private String replyer;
 	private int boardNo;
 	private Date replyDate;
-	
 }

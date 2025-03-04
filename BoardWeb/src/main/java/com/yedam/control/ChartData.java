@@ -10,13 +10,13 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.yedam.Control;
 import com.yedam.dao.ReplyDAO;
 
 public class ChartData implements Control {
 
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		// TODO Auto-generated method stub
 		ReplyDAO rdao = new ReplyDAO();
 		List<Map<String, Object>> list = rdao.chartData();
 
@@ -24,7 +24,6 @@ public class ChartData implements Control {
 		String json = gson.toJson(list);
 
 		resp.getWriter().print(json);
-
 	}
 
 }

@@ -7,17 +7,15 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.yedam.Control;
-
 public class LogoutControl implements Control {
 
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		HttpSession session = req.getSession(); // jsessionid 쿠키
+		// TODO Auto-generated method stub
+		HttpSession session = req.getSession(); // jsessionid쿠키.
 		session.invalidate();
-		
-		resp.sendRedirect("loginForm.do");
-		
+
+		resp.sendRedirect("main.do");
 	}
 
 }
